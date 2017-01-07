@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * Faonni
  *  
@@ -20,13 +19,25 @@
  * @copyright   Copyright (c) 2017 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
--->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-	<!--
-	event faonni_customer_oauth_obtain_token_after
-	-->	    
-    <event name="faonni_customer_oauth_obtain_token_after">
-        <observer name="faonni_customer_oauth_login" instance="Faonni\CustomerOAuthLogin\Observer\ObtainTokenObserver" />
-    </event>            
-</config>
+namespace Faonni\CustomerOAuthLogin\Model\ResourceModel\Profile;
+
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+
+/**
+ * Profile ResourceModel Collection
+ */
+class Collection extends AbstractCollection
+{
+    /**
+     * Initialize collection
+     *
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init(
+			'Faonni\CustomerOAuthLogin\Model\Profile', 
+			'Faonni\CustomerOAuthLogin\Model\ResourceModel\Profile'
+		);
+    }
+}
