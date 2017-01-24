@@ -59,6 +59,7 @@ class ObtainTokenObserver implements ObserverInterface
 		$provider = $observer->getEvent()->getProvider();
 		$response = $observer->getEvent()->getResponse();
 
+
         return $this;
     }
 }  
